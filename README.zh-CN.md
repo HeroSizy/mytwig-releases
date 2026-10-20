@@ -145,23 +145,23 @@ winget install HeroSizy.MyTwig
 
 ### 手动下载
 
-你也可以从[最新版本](https://github.com/HeroSizy/mytwig-releases/releases/latest)下载文件。下表是 0.2.0 版本的文件名。GitHub 把文件名中的空格显示为点。
+你也可以从[最新版本](https://github.com/HeroSizy/mytwig-releases/releases/latest)下载文件。下表中的 `<version>` 是该版本的版本号。GitHub 把文件名中的空格显示为点。
 
 | 平台 | 文件 | 说明 |
 | --- | --- | --- |
-| macOS | `MyTwig 0.2.0 arm64.dmg` / `MyTwig 0.2.0 amd64.dmg` | 磁盘映像：`arm64` 适用于 Apple 芯片（M1 及更新），`amd64` 适用于 Intel Mac |
-| Windows | `MyTwig Setup 0.2.0 amd64.exe` / `… arm64.exe` | 安装程序（只为当前用户安装，不需要管理员权限） |
-| Linux | `mytwig_0.2.0_amd64.deb` / `…_arm64.deb` | Debian/Ubuntu 软件包 |
-| macOS、Linux | `install.sh` | 一条命令安装所用的脚本。在 Linux 上，它也可以安装同一目录中的 `mytwig-0.2.0-linux-<架构>.tar.gz` 文件 |
+| macOS | `MyTwig <version> arm64.dmg` / `MyTwig <version> amd64.dmg` | 磁盘映像：`arm64` 适用于 Apple 芯片（M1 及更新），`amd64` 适用于 Intel Mac |
+| Windows | `MyTwig Setup <version> amd64.exe` / `… arm64.exe` | 安装程序（只为当前用户安装，不需要管理员权限） |
+| Linux | `mytwig_<version>_amd64.deb` / `…_arm64.deb` | Debian/Ubuntu 软件包 |
+| macOS、Linux | `install.sh` | 一条命令安装所用的脚本。在 Linux 上，它也可以安装同一目录中的 `mytwig-<version>-linux-<架构>.tar.gz` 文件 |
 | Windows | `install.ps1` | 一条命令安装所用的脚本 |
 | （全部） | `SHA256SUMS` | 安装程序、压缩包和脚本的 SHA-256 校验和。文件中的文件名保留空格，而 GitHub 显示为点 |
-| （全部） | `update-<平台>.json`、`mytwig-0.2.0-<平台>.tar.gz` | 自动更新使用这些文件。Scoop 也使用 Windows 压缩包。你不必下载这些文件。 |
+| （全部） | `update-<平台>.json`、`mytwig-<version>-<平台>.tar.gz` | 自动更新使用这些文件。Scoop 也使用 Windows 压缩包。你不必下载这些文件。 |
 
 #### macOS
 
 1. 下载适合你的 Mac 的磁盘映像：
-   - Apple 芯片（M1 及更新）：`MyTwig 0.2.0 arm64.dmg`
-   - Intel：`MyTwig 0.2.0 amd64.dmg`
+   - Apple 芯片（M1 及更新）：`MyTwig <version> arm64.dmg`
+   - Intel：`MyTwig <version> amd64.dmg`
 2. 打开磁盘映像。
 3. 把 **MyTwig** 拖进 **应用程序**。
 4. 从 **应用程序** 打开 MyTwig。
@@ -204,8 +204,8 @@ xattr -dr com.apple.quarantine /Applications/MyTwig.app
 #### Windows
 
 1. 运行适合你的设备的安装程序：
-   - x64：`MyTwig Setup 0.2.0 amd64.exe`
-   - ARM：`MyTwig Setup 0.2.0 arm64.exe`
+   - x64：`MyTwig Setup <version> amd64.exe`
+   - ARM：`MyTwig Setup <version> arm64.exe`
 2. 如果 **Microsoft Defender SmartScreen** 显示警告，点按 **更多信息**。
 3. 点按 **仍要运行**。
 
@@ -224,7 +224,7 @@ curl -fsSL https://github.com/HeroSizy/mytwig-releases/releases/latest/download/
 你也可以从本地文件安装 MyTwig：
 
 1. 把 `install.sh` 下载到一个目录。
-2. 把对应架构的 `mytwig-0.2.0-linux-<架构>.tar.gz` 文件下载到同一目录。
+2. 把对应架构的 `mytwig-<version>-linux-<架构>.tar.gz` 文件下载到同一目录。
 3. 在该目录中运行 `sh install.sh`。
 
 要删除 MyTwig，运行 `sh install.sh --uninstall`。该命令保留你的设置。
@@ -234,7 +234,7 @@ curl -fsSL https://github.com/HeroSizy/mytwig-releases/releases/latest/download/
 **方式 B：Debian/Ubuntu 软件包。**
 
 ```sh
-sudo apt install ./mytwig_0.2.0_amd64.deb   # 或 _arm64.deb
+sudo apt install ./mytwig_<version>_amd64.deb   # 或 _arm64.deb
 ```
 
 软件包把 MyTwig 安装到 `/opt/mytwig`。

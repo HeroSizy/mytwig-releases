@@ -145,23 +145,23 @@ The command runs the same installer as the manual download, for your user only. 
 
 ### Download manually
 
-You can also download the files from the [latest release](https://github.com/HeroSizy/mytwig-releases/releases/latest). The asset names below are for version 0.2.0. GitHub shows spaces in asset names as dots.
+You can also download the files from the [latest release](https://github.com/HeroSizy/mytwig-releases/releases/latest). In the names below, `<version>` is the version number of the release. GitHub shows spaces in asset names as dots.
 
 | Platform | File | What it is |
 | --- | --- | --- |
-| macOS | `MyTwig 0.2.0 arm64.dmg` / `MyTwig 0.2.0 amd64.dmg` | Disk image: `arm64` for Apple silicon (M1 and later), `amd64` for Intel Macs |
-| Windows | `MyTwig Setup 0.2.0 amd64.exe` / `… arm64.exe` | Installer (for your user only, no administrator rights necessary) |
-| Linux | `mytwig_0.2.0_amd64.deb` / `…_arm64.deb` | Debian/Ubuntu package |
-| macOS, Linux | `install.sh` | The one-command install script. On Linux, it can also install a `mytwig-0.2.0-linux-<arch>.tar.gz` file in the same folder |
+| macOS | `MyTwig <version> arm64.dmg` / `MyTwig <version> amd64.dmg` | Disk image: `arm64` for Apple silicon (M1 and later), `amd64` for Intel Macs |
+| Windows | `MyTwig Setup <version> amd64.exe` / `… arm64.exe` | Installer (for your user only, no administrator rights necessary) |
+| Linux | `mytwig_<version>_amd64.deb` / `…_arm64.deb` | Debian/Ubuntu package |
+| macOS, Linux | `install.sh` | The one-command install script. On Linux, it can also install a `mytwig-<version>-linux-<arch>.tar.gz` file in the same folder |
 | Windows | `install.ps1` | The one-command install script |
 | (all) | `SHA256SUMS` | SHA-256 checksums of the installers, archives and scripts. The file shows spaces in the names, where GitHub shows dots |
-| (all) | `update-<platform>.json`, `mytwig-0.2.0-<platform>.tar.gz` | The auto-updater uses these files. Scoop also uses the Windows archive. You do not have to download these files. |
+| (all) | `update-<platform>.json`, `mytwig-<version>-<platform>.tar.gz` | The auto-updater uses these files. Scoop also uses the Windows archive. You do not have to download these files. |
 
 #### macOS
 
 1. Download the disk image for your Mac:
-   - Apple silicon (M1 and later): `MyTwig 0.2.0 arm64.dmg`
-   - Intel: `MyTwig 0.2.0 amd64.dmg`
+   - Apple silicon (M1 and later): `MyTwig <version> arm64.dmg`
+   - Intel: `MyTwig <version> amd64.dmg`
 2. Open the disk image.
 3. Drag **MyTwig** into **Applications**.
 4. Open MyTwig from **Applications**.
@@ -204,8 +204,8 @@ xattr -dr com.apple.quarantine /Applications/MyTwig.app
 #### Windows
 
 1. Run the installer for your device:
-   - x64: `MyTwig Setup 0.2.0 amd64.exe`
-   - ARM: `MyTwig Setup 0.2.0 arm64.exe`
+   - x64: `MyTwig Setup <version> amd64.exe`
+   - ARM: `MyTwig Setup <version> arm64.exe`
 2. If **Microsoft Defender SmartScreen** shows a warning, click **More info**.
 3. Click **Run anyway**.
 
@@ -224,7 +224,7 @@ curl -fsSL https://github.com/HeroSizy/mytwig-releases/releases/latest/download/
 You can also install MyTwig from local files:
 
 1. Download `install.sh` into a folder.
-2. Download the `mytwig-0.2.0-linux-<arch>.tar.gz` file for your architecture into the same folder.
+2. Download the `mytwig-<version>-linux-<arch>.tar.gz` file for your architecture into the same folder.
 3. In that folder, run `sh install.sh`.
 
 To remove MyTwig, run `sh install.sh --uninstall`. This command keeps your settings.
@@ -234,7 +234,7 @@ To remove MyTwig, run `sh install.sh --uninstall`. This command keeps your setti
 **Option B: Debian/Ubuntu package.**
 
 ```sh
-sudo apt install ./mytwig_0.2.0_amd64.deb   # or _arm64.deb
+sudo apt install ./mytwig_<version>_amd64.deb   # or _arm64.deb
 ```
 
 The package installs MyTwig in `/opt/mytwig`.

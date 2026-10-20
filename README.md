@@ -6,6 +6,8 @@
 
 <p align="center">A fast, native Git client for macOS, Windows and Linux</p>
 
+<p align="center">Built with <a href="https://github.com/egoist/mygo">MyGo</a>.</p>
+
 <p align="center"><b>English</b> | <a href="README.zh-CN.md">简体中文</a></p>
 
 MyTwig is a desktop Git client for macOS, Windows and Linux. It shows all the branches of a repository in a commit graph. You can stage, commit, branch, merge, rebase, stash and resolve conflicts with the mouse or the keyboard. MyTwig is a native app, and we wrote it in Go. It does not use Electron. It does not use an account or a server of ours.

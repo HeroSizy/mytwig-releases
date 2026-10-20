@@ -6,6 +6,8 @@
 
 <p align="center">快速的原生 Git 客户端，支持 macOS、Windows 和 Linux</p>
 
+<p align="center">基于 <a href="https://github.com/egoist/mygo">MyGo</a> 构建。</p>
+
 <p align="center"><a href="README.md">English</a> | <b>简体中文</b></p>
 
 MyTwig 是一款适用于 macOS、Windows 和 Linux 的桌面 Git 客户端。它用提交图显示仓库的所有分支。你可以用鼠标或键盘暂存、提交、建分支、合并、变基、贮藏和解决冲突。MyTwig 是原生应用，我们用 Go 编写。它不使用 Electron，也不使用我们的任何账号或服务器。

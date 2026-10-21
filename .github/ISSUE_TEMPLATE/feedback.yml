@@ -1,0 +1,164 @@
+name: Feedback / 反馈
+description: Report a bug, ask for a feature or tell us anything else about MyTwig. 报告问题、提功能建议，或者告诉我们关于 MyTwig 的任何想法。
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to write. Fill in what you can; only the fields marked * are required. Please search [existing issues](https://github.com/HeroSizy/mytwig-releases/issues) first.
+        感谢反馈！能填多少填多少，带 * 的是必填项。提交前请先搜一下[已有的 issue](https://github.com/HeroSizy/mytwig-releases/issues)。
+
+        English or Chinese are both fine. 中文、英文都可以。
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Type / 类型
+      options:
+        - Bug / 问题
+        - Feature request / 功能建议
+        - Crash / 崩溃
+        - Performance / 性能
+        - Other / 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened, or what would you like? / 发生了什么，或者你想要什么？
+      description: One or two sentences. For a feature, the problem it would solve. 一两句话说清楚。如果是功能建议，说说它要解决什么问题。
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce / 复现步骤
+      description: For a bug, the steps that make it happen, starting from opening MyTwig. 如果是问题，从打开 MyTwig 开始，一步步写出怎样能让它出现。
+      placeholder: |
+        1. Open a repository with … / 打开一个……的仓库
+        2. Click … / 点击……
+        3. See … / 看到……
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual result / 期望结果和实际结果
+      description: What you expected to happen, and what happened instead. 你原本期望发生什么，实际发生了什么。
+      placeholder: |
+        Expected / 期望：
+        Actual / 实际：
+    validations:
+      required: false
+
+  - type: textarea
+    id: errors
+    attributes:
+      label: Error messages and logs / 报错信息和日志
+      description: |
+        Paste any error message MyTwig showed, and the output of the Git command if one failed. Logs and crash reports are in:
+        粘贴 MyTwig 显示的报错，以及失败的 Git 命令的输出。日志和崩溃报告在：
+        - macOS: `~/Library/Logs/MyTwig`
+        - Windows: `%LOCALAPPDATA%\MyTwig\Logs`
+        - Linux: `~/.local/state/mytwig` (or `$XDG_STATE_HOME/mytwig`)
+
+        Check them for paths, repository names or tokens you'd rather not share before pasting. 粘贴前请检查里面有没有你不想公开的路径、仓库名或令牌。
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or recordings / 截图或录屏
+      description: Drag images or videos here. A screenshot of the window, the dialog with the error, or a short recording of the steps helps most. 把图片或视频拖到这里。整个窗口、报错的对话框，或者复现过程的短录屏最有帮助。
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ### System information / 系统信息
+        MyTwig's version is shown in **Settings → General → Updates**. 版本号在 **设置 → 通用 → 更新** 里。
+
+  - type: input
+    id: version
+    attributes:
+      label: MyTwig version / MyTwig 版本
+      placeholder: "0.2.1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system / 操作系统
+      options:
+        - macOS
+        - Windows
+        - Linux
+    validations:
+      required: true
+
+  - type: input
+    id: os-version
+    attributes:
+      label: OS version / 系统版本
+      description: For example macOS 15.4, Windows 11 24H2, Ubuntu 24.04. 例如 macOS 15.4、Windows 11 24H2、Ubuntu 24.04。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: arch
+    attributes:
+      label: Architecture / 系统架构
+      description: On a Mac, Apple menu → About This Mac shows the chip. 在 Mac 上，苹果菜单 → 关于本机 可以看到芯片。
+      options:
+        - Apple silicon (M1 or later) / Apple 芯片
+        - Intel Mac
+        - x64 (Intel / AMD)
+        - ARM64
+        - Not sure / 不确定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install
+    attributes:
+      label: Installed with / 安装方式
+      options:
+        - Download from GitHub (.dmg / .exe / .deb / .tar.gz) / 从 GitHub 下载
+        - Install script (install.sh / install.ps1) / 安装脚本
+        - Homebrew
+        - Scoop
+        - Other / 其他
+    validations:
+      required: false
+
+  - type: input
+    id: git-version
+    attributes:
+      label: Git version / Git 版本
+      description: The output of `git --version`. 运行 `git --version` 的输出。
+      placeholder: "git version 2.47.1"
+    validations:
+      required: false
+
+  - type: input
+    id: forge
+    attributes:
+      label: Hosting service, if it's involved / 相关的代码托管平台（如果有）
+      description: For example GitHub, GitHub Enterprise, GitLab, Gitea, Forgejo, Bitbucket Cloud. 例如 GitHub、GitHub 企业版、GitLab、Gitea、Forgejo、Bitbucket Cloud。
+    validations:
+      required: false
+
+  - type: textarea
+    id: more
+    attributes:
+      label: Anything else / 其他补充
+      description: Repository size, a workaround you found, or anything that might help. 仓库规模、你找到的绕过办法，或者其他可能有帮助的信息。
+    validations:
+      required: false

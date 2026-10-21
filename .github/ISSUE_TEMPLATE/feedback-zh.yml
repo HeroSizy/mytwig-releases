@@ -1,0 +1,160 @@
+name: 反馈（中文）
+description: 报告问题、提功能建议，或者告诉我们关于 MyTwig 的任何想法。
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！能填多少填多少，带 * 的是必填项。提交前请先搜一下[已有的 issue](https://github.com/HeroSizy/mytwig-releases/issues)。
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 类型
+      options:
+        - 问题
+        - 功能建议
+        - 崩溃
+        - 性能
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: 发生了什么，或者你想要什么？
+      description: 一两句话说清楚。如果是功能建议，说说它要解决什么问题。
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 如果是问题，从打开 MyTwig 开始，一步步写出怎样能让它出现。
+      placeholder: |
+        1. 打开一个……的仓库
+        2. 点击……
+        3. 看到……
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望结果和实际结果
+      description: 你原本期望发生什么，实际发生了什么。
+      placeholder: |
+        期望：
+        实际：
+    validations:
+      required: false
+
+  - type: textarea
+    id: errors
+    attributes:
+      label: 报错信息和日志
+      description: |
+        粘贴 MyTwig 显示的报错，以及失败的 Git 命令的输出。日志和崩溃报告在：
+        - macOS：`~/Library/Logs/MyTwig`
+        - Windows：`%LOCALAPPDATA%\MyTwig\Logs`
+        - Linux：`~/.local/state/mytwig`（或 `$XDG_STATE_HOME/mytwig`）
+
+        粘贴前请检查里面有没有你不想公开的路径、仓库名或令牌。
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截图或录屏
+      description: 把图片或视频拖到这里。整个窗口、报错的对话框，或者复现过程的短录屏最有帮助。
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ### 系统信息
+        MyTwig 的版本号在 **设置 → 通用 → 更新** 里。
+
+  - type: input
+    id: version
+    attributes:
+      label: MyTwig 版本
+      placeholder: "0.2.1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: 操作系统
+      options:
+        - macOS
+        - Windows
+        - Linux
+    validations:
+      required: true
+
+  - type: input
+    id: os-version
+    attributes:
+      label: 系统版本
+      description: 例如 macOS 15.4、Windows 11 24H2、Ubuntu 24.04。
+    validations:
+      required: true
+
+  - type: dropdown
+    id: arch
+    attributes:
+      label: 系统架构
+      description: 在 Mac 上，苹果菜单 → 关于本机 可以看到芯片。
+      options:
+        - Apple silicon
+        - Intel Mac
+        - x64
+        - ARM64
+        - 不确定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install
+    attributes:
+      label: 安装方式
+      options:
+        - 从 GitHub 下载（.dmg、.exe、.deb 或 .tar.gz）
+        - 安装脚本（install.sh 或 install.ps1）
+        - Homebrew
+        - Scoop
+        - 其他
+    validations:
+      required: false
+
+  - type: input
+    id: git-version
+    attributes:
+      label: Git 版本
+      description: 运行 `git --version` 的输出。
+      placeholder: "git version 2.47.1"
+    validations:
+      required: false
+
+  - type: input
+    id: forge
+    attributes:
+      label: 相关的代码托管平台（如果有）
+      description: 例如 GitHub、GitHub 企业版、GitLab、Gitea、Forgejo、Bitbucket Cloud。
+    validations:
+      required: false
+
+  - type: textarea
+    id: more
+    attributes:
+      label: 其他补充
+      description: 仓库规模、你找到的绕过办法，或者其他可能有帮助的信息。
+    validations:
+      required: false

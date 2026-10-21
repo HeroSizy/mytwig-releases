@@ -1,0 +1,160 @@
+name: Feedback (English)
+description: Report a bug, ask for a feature or tell us anything else about MyTwig.
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to write. Fill in what you can; only the fields marked * are required. Please search [existing issues](https://github.com/HeroSizy/mytwig-releases/issues) first.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Type
+      options:
+        - Bug
+        - Feature request
+        - Crash
+        - Performance
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened, or what would you like?
+      description: One or two sentences. For a feature, the problem it would solve.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: For a bug, the steps that make it happen, starting from opening MyTwig.
+      placeholder: |
+        1. Open a repository with …
+        2. Click …
+        3. See …
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual result
+      description: What you expected to happen, and what happened instead.
+      placeholder: |
+        Expected:
+        Actual:
+    validations:
+      required: false
+
+  - type: textarea
+    id: errors
+    attributes:
+      label: Error messages and logs
+      description: |
+        Paste any error message MyTwig showed, and the output of the Git command if one failed. Logs and crash reports are in:
+        - macOS: `~/Library/Logs/MyTwig`
+        - Windows: `%LOCALAPPDATA%\MyTwig\Logs`
+        - Linux: `~/.local/state/mytwig` (or `$XDG_STATE_HOME/mytwig`)
+
+        Check them for paths, repository names or tokens you'd rather not share before pasting.
+      render: text
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or recordings
+      description: Drag images or videos here. A screenshot of the window, the dialog with the error, or a short recording of the steps helps most.
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        ### System information
+        MyTwig's version is shown in **Settings → General → Updates**.
+
+  - type: input
+    id: version
+    attributes:
+      label: MyTwig version
+      placeholder: "0.2.1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - macOS
+        - Windows
+        - Linux
+    validations:
+      required: true
+
+  - type: input
+    id: os-version
+    attributes:
+      label: OS version
+      description: For example macOS 15.4, Windows 11 24H2, Ubuntu 24.04.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: arch
+    attributes:
+      label: Architecture
+      description: On a Mac, Apple menu → About This Mac shows the chip.
+      options:
+        - Apple silicon
+        - Intel Mac
+        - x64
+        - ARM64
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install
+    attributes:
+      label: Installed with
+      options:
+        - Download from GitHub (.dmg, .exe, .deb or .tar.gz)
+        - Install script (install.sh or install.ps1)
+        - Homebrew
+        - Scoop
+        - Other
+    validations:
+      required: false
+
+  - type: input
+    id: git-version
+    attributes:
+      label: Git version
+      description: The output of `git --version`.
+      placeholder: "git version 2.47.1"
+    validations:
+      required: false
+
+  - type: input
+    id: forge
+    attributes:
+      label: Hosting service, if it's involved
+      description: For example GitHub, GitHub Enterprise, GitLab, Gitea, Forgejo, Bitbucket Cloud.
+    validations:
+      required: false
+
+  - type: textarea
+    id: more
+    attributes:
+      label: Anything else
+      description: Repository size, a workaround you found, or anything that might help.
+    validations:
+      required: false

@@ -295,3 +295,13 @@ You can use MyTwig free of charge. All rights reserved.
 MyTwig includes third-party fonts (Inter, IBM Plex Sans, JetBrains Mono, Fira Code, Cascadia Code, Caveat, Ma Shan Zheng). Each font has the SIL Open Font License 1.1.
 
 Copyright © 2026 HeroSizy.
+
+## Star history
+
+<a href="https://www.star-history.com/#HeroSizy/mytwig-releases&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=HeroSizy/mytwig-releases&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=HeroSizy/mytwig-releases&type=Date" />
+    <img alt="Star history of MyTwig" src="https://api.star-history.com/svg?repos=HeroSizy/mytwig-releases&type=Date" />
+  </picture>
+</a>

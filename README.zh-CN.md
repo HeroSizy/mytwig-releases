@@ -12,6 +12,8 @@
 
 MyTwig 是一款适用于 macOS、Windows 和 Linux 的桌面 Git 客户端。它用提交图显示仓库的所有分支。你可以用鼠标或键盘暂存、提交、建分支、合并、变基、贮藏和解决冲突。MyTwig 是原生应用，我们用 Go 编写。它不使用 Electron，也不使用我们的任何账号或服务器。
 
+> **MyTwig 正处于公开测试阶段（Public Beta）。** 测试期间免费，无需输入许可证。参与测试的用户在 MyTwig 正式发布后，还能获得一年的更新，从发布当天算起。
+
 本仓库**只包含发布版本和签名的更新清单**，不包含源代码。
 
 **[下载最新版本 →](https://github.com/HeroSizy/mytwig-releases/releases/latest)** · [全部版本](https://github.com/HeroSizy/mytwig-releases/releases)
@@ -43,15 +45,22 @@ Windows（PowerShell）：
 
 - **提交图**：显示所有分支，带分支和标签标签以及作者头像。你可以调整列宽和列顺序。历史非常长的仓库也能流畅显示。
 - **暂存与提交**：按文件、区块或单行暂存或丢弃。提交框支持修订上一次提交（amend）、Signed-off-by、共同作者、提交模板和摘要长度提示。
-- **拖放完成分支、合并与变基**。合并前，MyTwig 会预测冲突。交互式变基可以重排、压缩、改写和丢弃提交。
-- **冲突编辑器**：上方并排显示双方版本，下方是可编辑的结果。
+- **拖放完成分支、合并与 Rebase**。合并前，MyTwig 会预测冲突。在拖放菜单里把鼠标停在 Rebase 或合并上，提交图会先预览结果：重新生成的提交、移动后的分支，以及会因冲突停下的提交。交互式 Rebase 可以重排、压缩、改写和丢弃提交。
+- **冲突编辑器**：上方并排显示双方版本，下方是可编辑的结果。解决过的冲突会被记住（git rerere），再次出现时标为“与上次相同”。
 - **撤销与重做**大多数操作。**操作时间线**可以把仓库恢复到变基、重置、合并、拉取等操作之前的状态。
 - **拆分提交**：把一个提交或尚未提交的改动按文件、区块或行拆成多个提交。**Absorb** 把暂存的修复移入它们所属的提交。
-- **拉取请求与议题**：支持 GitHub（含 Enterprise）、GitLab、Gitea/Forgejo 和 Bitbucket Cloud。你可以在应用内审查 GitHub 的拉取请求。
+- **Pull Request 与议题**：支持 GitHub（含 Enterprise）、GitLab、Gitea/Forgejo 和 Bitbucket Cloud。你可以在应用内审查 GitHub 的 Pull Request。审查过的 PR 再打开时只显示此后的改动，Force push 或 Rebase 之后也一样。创建 PR 时可以选用各平台的 PR 模板。
+- **在应用内看 CI**：PR 会列出它的检查，失败的排在前面。GitHub Actions 的日志直接定位到第一个错误，可以让 AI 解释原因，还能重跑失败的任务、开关自动合并。
+- **Jira 和 Linear**：在分支和提交上显示问题，任务页面可以用列表或看板查看，“开始工作”会创建问题对应的分支，PR 创建和合并时问题会自动流转。
+- **推送前扫描密钥**：推送和创建 PR 时，检查尚未推送的提交中有没有令牌、密钥或密码，发现了会先问你。
 - **菜单栏/托盘小组件**：显示等待你处理的拉取请求、CI 状态，以及最近使用的仓库的状态。
-- **可选的 AI 辅助**，使用你自己的服务商：提交信息、提交或改动的解释、拉取请求描述、冲突建议和拆分计划。MyTwig 支持 Anthropic、兼容 OpenAI 接口的服务、Gemini、本机的 Ollama 或 LM Studio，以及 `claude`、`codex`、`copilot`、`gemini` 命令行工具。请求从你的电脑直接发往你选择的服务商。
+- **可选的 AI 辅助**，使用你自己的服务商：用一句话搜索历史（“上个月我在登录相关的地方改了什么”）、让 AI 规划 Git 步骤（勾选后执行，一次撤销即可还原）、提交信息、提交或改动的解释、拉取请求描述、冲突建议和拆分计划。MyTwig 支持 Anthropic、兼容 OpenAI 接口的服务、Gemini、本机的 Ollama 或 LM Studio，以及 `claude`、`codex`、`copilot`、`gemini` 命令行工具。请求从你的电脑直接发往你选择的服务商。
+- **丰富差异视图**：支持 Jupyter Notebook、Markdown、SVG、JSON 和 YAML，也可以切回按行显示。
+- **Monorepo 范围**：把提交图、改动和搜索限定在一个文件夹内，显示 CODEOWNERS 里的负责人，还可以只检出这个文件夹（稀疏检出）。
+- **mytwig:// 链接**：在 MyTwig 中直接打开仓库、提交、分支、PR 或文件。
+- **实验功能**：**Agent 动态**把编码智能体的提交按任务分组，并标出值得留意的任务（可能的密钥、大量删除、CI 或依赖的改动）。**Jev** 为你的改动选择 Conventional Commits 的类型和范围，并找出改动对应的问题。在 设置 → 实验性功能 中开启。
 - 其他功能：文件历史、追溯（blame）与行历史、bisect、reflog、提交图中的贮藏、工作树、子模块、Git LFS、Git Flow 和补丁。MyTwig 还提供提交签名（GPG、SSH、X.509）、SSH 密钥管理、多套身份配置、自定义命令、内置终端和命令面板。
-- **英文和简体中文界面**，浅色和深色主题，强调色，以及 macOS 26 的 Liquid Glass 风格（仅 macOS）。
+- **英文和简体中文界面**，浅色和深色主题，强调色，以及 macOS 26 的 Liquid Glass 风格（仅 macOS）。支持 VoiceOver 朗读列表、按钮、面板和设置项。
 
 ## 系统要求
 
@@ -290,7 +299,7 @@ MyTwig 没有使用情况统计，也没有自己的服务器。它连接你的 
 
 ## 许可与条款
 
-你可以免费使用 MyTwig。保留所有权利。
+MyTwig 在公开测试期间免费。参与测试的用户在正式发布后，还能获得一年的更新，从发布当天算起。保留所有权利。
 
 MyTwig 内置第三方字体（Inter、IBM Plex Sans、JetBrains Mono、Fira Code、Cascadia Code、Caveat、马善政楷书 Ma Shan Zheng）。每种字体都采用 SIL Open Font License 1.1。
 

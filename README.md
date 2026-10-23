@@ -12,6 +12,8 @@
 
 MyTwig is a desktop Git client for macOS, Windows and Linux. It shows all the branches of a repository in a commit graph. You can stage, commit, branch, merge, rebase, stash and resolve conflicts with the mouse or the keyboard. MyTwig is a native app, and we wrote it in Go. It does not use Electron. It does not use an account or a server of ours.
 
+> **MyTwig is in Public Beta.** It's free while the beta lasts, with no license to enter. If you use the beta, you get a year of updates after MyTwig launches, counted from launch day.
+
 This repository contains **release builds and signed update manifests only**. It does not contain source code.
 
 **[Download the latest release →](https://github.com/HeroSizy/mytwig-releases/releases/latest)** · [All releases](https://github.com/HeroSizy/mytwig-releases/releases)
@@ -43,15 +45,22 @@ For more information, see [Download and install](#download-and-install). That se
 
 - **Commit graph** of all branches, with branch and tag labels and author avatars. You can change the width and the order of the columns. The graph stays fast on very large histories.
 - **Stage and commit**: stage or discard full files, hunks or single lines. The commit box has amend, sign-off, co-authors, commit templates and hints for the summary length.
-- **Branches, merges and rebases** with drag and drop. MyTwig predicts conflicts before you merge. With an interactive rebase, you can reorder, squash, reword and drop commits.
-- **Conflict editor**. It shows ours and theirs side by side above an editable result.
+- **Branches, merges and rebases** with drag and drop. MyTwig predicts conflicts before you merge. Hover a rebase or merge in the drop menu and the graph previews the result: the commits made again, the branches moved and the commit that would stop on a conflict. With an interactive rebase, you can reorder, squash, reword and drop commits.
+- **Conflict editor**. It shows ours and theirs side by side above an editable result. Conflicts you resolved before are remembered (git rerere) and marked "as last time".
 - **Undo and redo** for most operations. The **Operation Timeline** can restore the repository to its state before a rebase, reset, merge, pull and other operations.
 - **Split a commit**, or your uncommitted changes, into many commits by file, hunk or line. **Absorb** moves staged fixes into the commits that they belong to.
-- **Pull requests and issues** from GitHub (also Enterprise), GitLab, Gitea/Forgejo and Bitbucket Cloud. You can review GitHub pull requests in the app.
+- **Pull requests and issues** from GitHub (also Enterprise), GitLab, Gitea/Forgejo and Bitbucket Cloud. You can review GitHub pull requests in the app. A pull request you reviewed before opens on what changed since, also after a force push or rebase. Pull request templates from each forge are offered when you create one.
+- **CI in the app**. A pull request lists its checks, failed ones first. A GitHub Actions log opens at its first error, the AI can explain it, and you can re-run failed jobs and turn auto-merge on or off.
+- **Jira and Linear**: issues on branches and commits, a Tasks page as a list or a board, Start Work to create the issue's branch, and issues that move as their pull requests open and merge.
+- **Secret scan before pushing**. Push and Create Pull Request check the commits that are not on a remote yet for tokens, keys and passwords, and ask before they continue.
 - **Menu bar / tray companion**. It shows the pull requests that wait for you, the CI status and the status of your recent repositories.
-- **Optional AI help** with your own provider: commit messages, explanations of a commit or a change, pull request descriptions, conflict suggestions and split plans. MyTwig supports Anthropic, OpenAI-compatible APIs, Gemini, local Ollama or LM Studio, and the `claude`, `codex`, `copilot` and `gemini` CLIs. Requests go directly from your computer to the provider that you select.
+- **Optional AI help** with your own provider: search the history in plain words ("what did I change in the login last month"), ask AI to plan Git steps that you tick to run and undo in one step, commit messages, explanations of a commit or a change, pull request descriptions, conflict suggestions and split plans. MyTwig supports Anthropic, OpenAI-compatible APIs, Gemini, local Ollama or LM Studio, and the `claude`, `codex`, `copilot` and `gemini` CLIs. Requests go directly from your computer to the provider that you select.
+- **Rich diffs** for Jupyter notebooks, Markdown, SVG, JSON and YAML, with a switch to the plain lines.
+- **Monorepo scope**: keep the graph, the changes and the search to one folder, see its owners from CODEOWNERS, and check out only that folder (sparse checkout).
+- **mytwig:// links** open a repository, commit, branch, pull request or file in MyTwig.
+- **Experimental**: **Agent Activity** groups the commits of coding agents into tasks and flags the ones worth a look (a possible secret, a big deletion, CI or dependency changes). **Jev** picks a Conventional Commits type and scope for your changes and finds a change's issue. Turn them on in Settings → Experimental.
 - More features: file history, blame and line history, bisect, reflog, stashes in the graph, worktrees, submodules, Git LFS, Git Flow and patches. MyTwig also has commit signatures (GPG, SSH, X.509), SSH key management, profiles, custom commands, a built-in terminal and a command palette.
-- **English and Simplified Chinese**, light and dark themes, accent colors, and the macOS 26 Liquid Glass style (on macOS).
+- **English and Simplified Chinese**, light and dark themes, accent colors, and the macOS 26 Liquid Glass style (on macOS). VoiceOver reads the lists, buttons, panels and settings.
 
 ## System requirements
 
@@ -290,7 +299,7 @@ Report bugs and send feedback in [GitHub Issues](https://github.com/HeroSizy/myt
 
 ## License and terms
 
-You can use MyTwig free of charge. All rights reserved.
+MyTwig is free during the Public Beta. If you use the beta, you get a year of updates after launch, counted from launch day. All rights reserved.
 
 MyTwig includes third-party fonts (Inter, IBM Plex Sans, JetBrains Mono, Fira Code, Cascadia Code, Caveat, Ma Shan Zheng). Each font has the SIL Open Font License 1.1.
 

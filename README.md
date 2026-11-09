@@ -96,7 +96,7 @@ curl -fsSL https://github.com/HeroSizy/mytwig-releases/releases/latest/download/
 
 The two commands install the latest version for your user, and then open MyTwig. They do not need administrator rights.
 
-**macOS.** The script selects the build for your Mac (Apple silicon or Intel). It examines the Ed25519 signature of the download with the MyTwig key. Then it puts MyTwig in `/Applications`, or in `~/Applications` if you cannot write to `/Applications`. Unlike a browser, curl does not put a quarantine flag on the download, and the script does not change the flag. Thus, macOS shows **no Gatekeeper "Open Anyway" prompt**.
+**macOS.** The script selects the build for your Mac (Apple silicon or Intel). It examines the Ed25519 signature of the download with the MyTwig key. Then it puts MyTwig in `/Applications`, or in `~/Applications` if you cannot write to `/Applications`. MyTwig has an Apple Developer ID signature and Apple notarized it, so macOS opens it at once.
 
 **Linux.** The script also examines the signature. For this, you must have OpenSSL 3.0 or later (Debian 12, Ubuntu 22.04, Fedora 36, RHEL 9 and later).
 
@@ -123,8 +123,6 @@ If you use a package manager for your apps, you can also install MyTwig with it.
 ```sh
 brew install --cask herosizy/tap/mytwig
 ```
-
-> **NOTE:** Homebrew puts a quarantine flag on the download, as a browser does. Thus, the first launch needs the same ["Open Anyway"](#first-launch-open-anyway) procedure as a manual download. `brew upgrade` installs a new copy, so you possibly must do the procedure again after an upgrade.
 
 - To update MyTwig, run `brew upgrade --cask mytwig`.
 - The updater of the app also works in a Homebrew install. But Homebrew shows the version that it installed until you run the command above.
@@ -178,39 +176,6 @@ You can also download the files from the [latest release](https://github.com/Her
 4. Open MyTwig from **Applications**.
 
 > **NOTE:** If you do not know the chip of your Mac, select Apple menu → **About This Mac**. Apple silicon shows **Chip: Apple M…**. Intel shows **Processor: … Intel …**.
-
-> **NOTE:** The first launch needs one more procedure. See the section below.
-
-##### First launch: "Open Anyway"
-
-This build **does not have an Apple Developer ID signature, and Apple did not notarize it**. It has only an ad-hoc signature. Thus, Gatekeeper blocks MyTwig the first time that you open it. This is normal. To let MyTwig open, do the procedure for your macOS version.
-
-**macOS 15 Sequoia and later**
-
-1. Double-click MyTwig.
-2. When a dialog tells you that Apple could not verify MyTwig, click **Done**.
-3. Open **System Settings → Privacy & Security**.
-4. Scroll to **Security**.
-5. Next to the message about "MyTwig", click **Open Anyway**.
-6. Enter your password or use Touch ID to confirm.
-7. Open MyTwig again.
-8. Click **Open**.
-
-**macOS 12–14**
-
-1. In **Applications**, Control-click (or right-click) MyTwig.
-2. Select **Open**.
-3. In the dialog, click **Open**.
-
-You can also use **System Settings → Privacy & Security → Open Anyway**, as in the procedure above.
-
-You must do this procedure only one time. If you trust the download, you can run this command in Terminal instead:
-
-```sh
-xattr -dr com.apple.quarantine /Applications/MyTwig.app
-```
-
-> **CAUTION:** Run this command only if you trust the download. The command removes the quarantine flag from MyTwig.
 
 #### Windows
 

@@ -96,7 +96,7 @@ curl -fsSL https://github.com/HeroSizy/mytwig-releases/releases/latest/download/
 
 两条命令都为当前用户安装最新版本，然后打开 MyTwig。它们不需要管理员权限。
 
-**macOS。** 脚本选择适合你的 Mac 的版本（Apple 芯片或 Intel）。它用 MyTwig 的公钥校验下载文件的 Ed25519 签名。然后它把 MyTwig 放进 `/Applications`；如果你无法写入 `/Applications`，则放进 `~/Applications`。curl 不像浏览器那样给下载的文件加隔离标记，脚本也不修改这个标记。因此 macOS **不显示 Gatekeeper 的“仍要打开”提示**。
+**macOS。** 脚本选择适合你的 Mac 的版本（Apple 芯片或 Intel）。它用 MyTwig 的公钥校验下载文件的 Ed25519 签名。然后它把 MyTwig 放进 `/Applications`；如果你无法写入 `/Applications`，则放进 `~/Applications`。MyTwig 带有 Apple 开发者 ID 签名并经过 Apple 公证，macOS 会直接打开它。
 
 **Linux。** 脚本同样校验签名。为此，你必须有 OpenSSL 3.0 或更高版本（Debian 12、Ubuntu 22.04、Fedora 36、RHEL 9 及更新版本）。
 
@@ -123,8 +123,6 @@ curl -fsSL https://github.com/HeroSizy/mytwig-releases/releases/latest/download/
 ```sh
 brew install --cask herosizy/tap/mytwig
 ```
-
-> **注意：** Homebrew 会像浏览器一样给下载的文件加隔离标记。因此首次打开时，需要执行与手动下载相同的[“仍要打开”](#首次打开仍要打开)步骤。`brew upgrade` 会安装一份新的副本，所以升级后可能需要再执行一次这些步骤。
 
 - 要更新 MyTwig，运行 `brew upgrade --cask mytwig`。
 - 应用自带的更新在 Homebrew 安装中同样可用。但在你运行上面的命令之前，Homebrew 显示的仍是它安装的版本。
@@ -178,39 +176,6 @@ winget install HeroSizy.MyTwig
 4. 从 **应用程序** 打开 MyTwig。
 
 > **注意：** 如果你不确定 Mac 的芯片，选择苹果菜单 → **关于本机**。Apple 芯片显示 **芯片：Apple M…**。Intel 显示 **处理器：… Intel …**。
-
-> **注意：** 首次打开需要再执行一组步骤。见下文。
-
-##### 首次打开：“仍要打开”
-
-此版本**没有 Apple 开发者 ID 签名，Apple 也没有对它进行公证**。它只有临时（ad-hoc）签名。因此首次打开时，Gatekeeper 会拦截 MyTwig。这是正常现象。要允许 MyTwig 打开，请执行与你的 macOS 版本对应的步骤。
-
-**macOS 15 Sequoia 及更高版本**
-
-1. 双击 MyTwig。
-2. 当对话框提示 Apple 无法验证 MyTwig 时，点按 **完成**。
-3. 打开 **系统设置 → 隐私与安全性**。
-4. 滚动到 **安全性**。
-5. 在关于“MyTwig”的提示旁，点按 **仍要打开**。
-6. 输入密码或使用触控 ID 确认。
-7. 再次打开 MyTwig。
-8. 点按 **打开**。
-
-**macOS 12–14**
-
-1. 在 **应用程序** 中，按住 Control 键点按（或右键点按）MyTwig。
-2. 选择 **打开**。
-3. 在对话框中，点按 **打开**。
-
-你也可以按上面的步骤，使用 **系统设置 → 隐私与安全性 → 仍要打开**。
-
-这些步骤只需执行一次。如果你信任下载来源，也可以在“终端”中运行这条命令：
-
-```sh
-xattr -dr com.apple.quarantine /Applications/MyTwig.app
-```
-
-> **警告：** 只有在你信任下载来源时，才运行这条命令。该命令会删除 MyTwig 的隔离标记。
 
 #### Windows
 
